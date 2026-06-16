@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: #534AB7;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-gray-200 rounded-xl p-4;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full;
+  }
+  .badge-green  { @apply bg-green-50  text-green-800; }
+  .badge-red    { @apply bg-red-50    text-red-800; }
+  .badge-amber  { @apply bg-amber-50  text-amber-800; }
+  .badge-blue   { @apply bg-blue-50   text-blue-800; }
+  .badge-purple { @apply bg-purple-50 text-purple-800; }
+  .badge-gray   { @apply bg-gray-100  text-gray-700; }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200
+           text-sm font-medium transition-colors cursor-pointer
+           hover:bg-gray-50 active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-brand-600 text-white border-brand-600 hover:bg-brand-800;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white border-red-600 hover:bg-red-700;
+  }
+  .input {
+    @apply w-full border border-gray-200 rounded-lg px-3 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           placeholder:text-gray-400 transition;
+  }
+  .label {
+    @apply block text-xs font-medium text-gray-600 mb-1;
+  }
+  .kpi-card {
+    @apply bg-gray-50 rounded-lg p-3;
+  }
+  .kpi-label {
+    @apply text-[10px] uppercase tracking-wide text-gray-500 mb-1;
+  }
+  .kpi-value {
+    @apply text-xl font-medium text-gray-900;
+  }
+  .table-wrap {
+    @apply border border-gray-200 rounded-xl overflow-hidden;
+  }
+  .data-table {
+    @apply w-full text-sm border-collapse;
+  }
+  .data-table th {
+    @apply bg-gray-50 px-3 py-2.5 text-left text-[10px] font-medium uppercase tracking-wide text-gray-500 border-b border-gray-200;
+  }
+  .data-table td {
+    @apply px-3 py-2.5 border-t border-gray-100 text-gray-800;
+  }
+  .data-table tr:hover td {
+    @apply bg-gray-50;
+  }
+}
