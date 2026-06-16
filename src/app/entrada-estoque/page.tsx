@@ -1,4 +1,6 @@
 'use client'
+
+export const dynamic = 'force-dynamic'
 import { useState, useRef, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { calcMarkup, calcMargin, priceFromMarkup, priceFromMargin, formatCurrency } from '@/lib/utils'
@@ -348,4 +350,14 @@ export default function EntradaEstoquePage() {
             <button
               onClick={confirmEntry}
               disabled={saving || saved}
-              className={`btn w-full justify-center py-2.5 ${saved ? 'bg-green-600 text-white border-green-600' : 'btn-primary'} disabled:
+              className={`btn w-full justify-center py-2.5 ${saved ? 'bg-green-600 text-white border-green-600' : 'btn-primary'} disabled:opacity-60`}
+            >
+              {saved ? <><CheckCircle size={15} /> Entrada confirmada!</> : saving ? 'Salvando...' : <><CheckCircle size={15} /> Confirmar entrada no estoque</>}
+            </button>
+            <button onClick={() => setCart([])} className="btn w-full justify-center mt-2 text-gray-500">Limpar lote</button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
