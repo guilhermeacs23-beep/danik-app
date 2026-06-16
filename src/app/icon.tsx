@@ -7,23 +7,23 @@ export default function Icon() {
   return new ImageResponse(
     <div
       style={{
-        background: 'linear-gradient(135deg, #C4956A, #D4A882)',
         width: '100%',
         height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 6,
+        borderRadius: '50%',
+        background: '#F0E4E4',
       }}
     >
       <span
         style={{
-          color: '#FAF5F0',
           fontSize: 22,
           fontWeight: 900,
           fontFamily: 'serif',
-          letterSpacing: '-1px',
+          color: '#C4956A',
           lineHeight: 1,
+          letterSpacing: '-1px',
         }}
       >
         K
