@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { createClient } from '@/lib/supabase/server'
 import { formatCurrency, formatDate } from '@/lib/utils'
 import { notFound } from 'next/navigation'
@@ -49,7 +51,7 @@ export default async function MaletaDetailPage({ params }: { params: Promise<{ i
           </p>
         </div>
         {(suitcase.status === 'open' || suitcase.status === 'overdue') && active > 0 && (
-          <Link href={`/maletas/${suitcase.id}/retorno`} className="btn btn-primary text-sm">
+          <Link href={`/maletas/${id}/retorno`} className="btn btn-primary text-sm">
             ↩ Registrar retorno
           </Link>
         )}
@@ -128,4 +130,16 @@ export default async function MaletaDetailPage({ params }: { params: Promise<{ i
             })}
             {!items?.length && (
               <tr><td colSpan={8} className="text-center text-gray-400 py-8">Nenhuma peça nesta maleta.</td></tr>
-        
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {suitcase.notes && (
+        <div className="mt-4 text-sm text-gray-500">
+          <span className="font-medium">Obs:</span> {suitcase.notes}
+        </div>
+      )}
+    </div>
+  )
+}
