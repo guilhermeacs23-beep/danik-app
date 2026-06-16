@@ -55,7 +55,7 @@ export default function NovaMaletaPage() {
     if (!customerId || !expectedReturn || items.length === 0) return
     setSaving(true)
 
-    const code = generateSuitcaseCode()
+    const code = generateSuitcaseCode(Date.now() % 10000)
     const totalValue = items.reduce((a: number, i: any) => a + (i.products?.sale_price || 0), 0)
 
     const { data: suitcase, error: err } = await supabase.from('suitcases').insert({
