@@ -1,6 +1,4 @@
 'use client'
-
-export const dynamic = 'force-dynamic'
 import { useState, useRef, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { calcMarkup, calcMargin, priceFromMarkup, priceFromMargin, formatCurrency } from '@/lib/utils'
@@ -91,18 +89,26 @@ export default function EntradaEstoquePage() {
   async function confirmEntry() {
     if (!cart.length) return
     setSaving(true)
-    // Aqui vai a lógica real de inserção no Supabase
-    // Por ora salva products + product_items em batch
+    // Get tenant_id from current user's profile
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) { setSaving(false); return }
+    const { data: profile } = await supabase.from('profiles').select('tenant_id').eq('id', user.id).single()
+    if (!profile?.tenant_id) { setSaving(false); return }
+    const tenantId = profile.tenant_id
+
     for (const item of cart) {
+      const internalCode = `PROD-${Date.now()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`
       const { data: product } = await supabase.from('products').insert({
+        tenant_id: tenantId,
         name: item.name, barcode: item.barcode || null,
-        internal_code: `PROD-${Date.now()}`,
+        internal_code: internalCode,
         cost_price: item.cost, sale_price: item.price,
       }).select().maybeSingle()
       if (product) {
         const items = Array.from({ length: item.qty }, (_, i) => ({
+          tenant_id: tenantId,
           product_id: product.id,
-          item_code: `${product.internal_code}-${item.size}-${item.color?.slice(0,3).toUpperCase() || 'SEM'}-${String(i+1).padStart(4,'0')}`,
+          item_code: `${internalCode}-${item.size}-${item.color?.slice(0,3).toUpperCase() || 'SEM'}-${String(i+1).padStart(4,'0')}`,
           size: item.size, color: item.color,
           status: 'in_stock', purchase_cost: item.cost, purchase_date: new Date().toISOString().split('T')[0],
         }))
@@ -342,14 +348,4 @@ export default function EntradaEstoquePage() {
             <button
               onClick={confirmEntry}
               disabled={saving || saved}
-              className={`btn w-full justify-center py-2.5 ${saved ? 'bg-green-600 text-white border-green-600' : 'btn-primary'} disabled:opacity-60`}
-            >
-              {saved ? <><CheckCircle size={15} /> Entrada confirmada!</> : saving ? 'Salvando...' : <><CheckCircle size={15} /> Confirmar entrada no estoque</>}
-            </button>
-            <button onClick={() => setCart([])} className="btn w-full justify-center mt-2 text-gray-500">Limpar lote</button>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+              className={`btn w-full justify-center py-2.5 ${saved ? 'bg-green-600 text-white border-green-600' : 'btn-primary'} disabled:
