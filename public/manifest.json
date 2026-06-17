@@ -1,0 +1,14 @@
+{
+  "name": "DANIK Vendedora",
+  "short_name": "DANIK",
+  "description": "App da vendedora DANIK",
+  "start_url": "/vendedora",
+  "display": "standalone",
+  "background_color": "#F0E4E4",
+  "theme_color": "#C4956A",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/logo-danik.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo-danik.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

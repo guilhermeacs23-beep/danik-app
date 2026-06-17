@@ -4,19 +4,8 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'DANIK — Gestão de Moda',
   description: 'Plataforma de gestão para lojas de roupas femininas',
+  manifest: '/manifest.json',
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'DANIK' },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{const t=localStorage.getItem('danik-theme')||'light';document.documentElement.classList.toggle('dark',t==='dark')}catch{}`
-          }}
-        />
-      </head>
-      <body>{children}</body>
-    </html>
-  )
-}
+export default function RootLayout({ children }: { childre
