@@ -38,7 +38,7 @@ export default function LoginPage() {
             className="mx-auto"
             priority
           />
-          <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">Gestão de moda feminina</p>
+          <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">Elegance in Every Detail</p>
         </div>
 
         <div className="bg-white rounded-2xl border border-[#e8d8d4] shadow-sm p-6">
