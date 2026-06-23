@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -30,14 +29,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F5EDEB' }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <Image
-            src="/logo.png"
-            alt="DANIK"
-            width={220}
-            height={91}
-            className="mx-auto"
-            priority
-          />
+          <img src="/logo.png" alt="DANIK" style={{width:220, height:"auto"}} className="mx-auto" />
           <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">Elegance in Every Detail</p>
         </div>
 
@@ -87,7 +79,7 @@ export default function LoginPage() {
         </p>
 
         <div className="flex justify-center mt-6 opacity-60 hover:opacity-90 transition-opacity">
-          <Image src="/valora.png" alt="Valora Business Technology" width={100} height={40} style={{objectFit:'contain'}} />
+          <img src="/valora.png" alt="Valora Business Technology" style={{width:100, height:"auto"}} />
         </div>
       </div>
     </div>
