@@ -117,8 +117,17 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
-      <div style={{background:'#0a0a0a',display:'flex',justifyContent:'center',alignItems:'center',padding:'10px 0',height:72}}>
-        <img src="/valora.png" alt="Valora Business Technology" style={{height:52,width:'auto',filter:'brightness(1.5) contrast(1.1)'}} />
+      <div style={{position:'relative', height:66, flexShrink:0}}>
+        <svg viewBox="0 0 800 66" preserveAspectRatio="none"
+          style={{position:'absolute',bottom:0,left:0,width:'100%',height:'100%'}}>
+          <path d="M 0,66 L 0,52 L 278,52 C 290,52 294,2 318,2 L 482,2 C 506,2 510,52 522,52 L 800,52 L 800,66 Z"
+            fill="#0a0a0a"/>
+        </svg>
+        <div style={{position:'absolute',bottom:0,left:0,right:0,height:14,background:'#0a0a0a'}}/>
+        <div style={{position:'absolute',bottom:14,left:'50%',transform:'translateX(-50%)',height:40,display:'flex',alignItems:'center',justifyContent:'center',zIndex:2}}>
+          <img src="/valora.png" alt="Valora Business Technology"
+            style={{height:40,width:'auto',filter:'brightness(1.5) contrast(1.1)'}} />
+        </div>
       </div>
     </div>
   )
