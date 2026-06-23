@@ -80,10 +80,10 @@ export default function LoginPage() {
         <div style={{
           position:'fixed', bottom:0, left:0, right:0,
           background:'#000', display:'flex', justifyContent:'center',
-          alignItems:'center', padding:'16px 0'
+          alignItems:'center', padding:'8px 0'
         }}>
           <img src="/valora.png" alt="Valora Business Technology"
-            style={{height:64, width:'auto', filter:'brightness(1.4) contrast(1.2)'}} />
+            style={{height:110, width:'auto', filter:'brightness(1.4) contrast(1.2)'}} />
         </div>
       </div>
     </div>
