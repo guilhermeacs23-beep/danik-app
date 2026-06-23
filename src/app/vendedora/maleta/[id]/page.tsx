@@ -90,7 +90,7 @@ export default function VendedoraMaleta() {
         tenant_id: tenantId, customer_id: suit?.customers?.id, suitcase_id: id,
         sale_type:'suitcase', code:`VND-${Date.now().toString().slice(-6)}`,
         subtotal, discount_value: disc, total,
-        payment_method: payMode==='cred' ? 'credit' : payMode==='mixed' ? 'mixed' : payMode,
+        payment_method: payMode==='cred' ? 'credit' : payMode,
         installments: payMode==='cred' ? parcelas : 1,
         status: (payMode==='cred' && cred>0) ? 'partial' : 'completed',
       }).select().single()
