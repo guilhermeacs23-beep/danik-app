@@ -86,9 +86,9 @@ export default function LoginPage() {
           </Link>
         </p>
 
-        <p className="text-center text-xs text-gray-400 mt-4">
-          DANIK © {new Date().getFullYear()}
-        </p>
+        <div className="flex justify-center mt-6 opacity-60 hover:opacity-90 transition-opacity">
+          <Image src="/valora.png" alt="Valora Business Technology" width={100} height={40} style={{objectFit:'contain'}} />
+        </div>
       </div>
     </div>
   )
