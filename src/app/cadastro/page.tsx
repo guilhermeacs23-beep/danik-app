@@ -34,7 +34,7 @@ export default function CadastroPage() {
 
   if (step === 'success') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F5EDEB' }}>
+      <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F0E4E4' }}>
         <div className="w-full max-w-sm text-center">
           <img src="/logo.png" alt="DANIK" style={{ width: 180, height: 'auto', margin: '0 auto 24px' }} />
           <div className="bg-white rounded-2xl border border-[#e8d8d4] shadow-sm p-8">
@@ -51,11 +51,10 @@ export default function CadastroPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F5EDEB' }}>
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F0E4E4' }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <img src="/logo.png" alt="DANIK" style={{ width: 200, height: 'auto', margin: '0 auto' }} />
-          <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">Elegance in Every Detail</p>
         </div>
 
         <div className="bg-white rounded-2xl border border-[#e8d8d4] shadow-sm p-6">
@@ -100,8 +99,12 @@ export default function CadastroPage() {
           <Link href="/login" className="text-brand-600 hover:underline font-medium">Entrar</Link>
         </p>
 
-        <div className="flex justify-center mt-6 opacity-60 hover:opacity-90 transition-opacity">
-          <img src="/valora.png" alt="Valora Business Technology" style={{ width: 100, height: 'auto' }} />
+        <div style={{
+          position:'fixed', bottom:0, left:0, right:0,
+          background:'#111', display:'flex', justifyContent:'center',
+          alignItems:'center', padding:'12px 0'
+        }}>
+          <img src="/valora.png" alt="Valora Business Technology" style={{height:36, width:'auto', opacity:0.9}} />
         </div>
       </div>
     </div>
