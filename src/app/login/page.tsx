@@ -1,9 +1,9 @@
 'use client'
-
-export const dynamic = 'force-dynamic'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -27,16 +27,21 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: '#F5EDEB' }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-medium tracking-tight text-gray-900">
-            DA<span className="text-brand-600">NIK</span>
-          </h1>
-          <p className="text-sm text-gray-500 mt-1">Gestão de moda feminina</p>
+          <Image
+            src="/logo.png"
+            alt="DANIK"
+            width={220}
+            height={91}
+            className="mx-auto"
+            priority
+          />
+          <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">Gestão de moda feminina</p>
         </div>
 
-        <div className="card">
+        <div className="bg-white rounded-2xl border border-[#e8d8d4] shadow-sm p-6">
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="label">E-mail</label>
@@ -67,14 +72,21 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-primary w-full justify-center py-2"
+              className="btn btn-primary w-full justify-center py-2.5"
             >
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-6">
+        <p className="text-center text-sm text-gray-500 mt-5">
+          Novo por aqui?{' '}
+          <Link href="/cadastro" className="text-brand-600 hover:underline font-medium">
+            Criar conta
+          </Link>
+        </p>
+
+        <p className="text-center text-xs text-gray-400 mt-4">
           DANIK © {new Date().getFullYear()}
         </p>
       </div>
