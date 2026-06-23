@@ -120,7 +120,7 @@ export default function LoginPage() {
       <div style={{position:'relative', height:66, flexShrink:0}}>
         <svg viewBox="0 0 800 66" preserveAspectRatio="none"
           style={{position:'absolute',bottom:0,left:0,width:'100%',height:'100%'}}>
-          <path d="M 0,66 L 0,52 L 278,52 C 290,52 294,2 318,2 L 482,2 C 506,2 510,52 522,52 L 800,52 L 800,66 Z"
+          <path d="M 0,66 L 0,52 L 348,52 C 356,52 360,2 374,2 L 426,2 C 440,2 444,52 452,52 L 800,52 L 800,66 Z"
             fill="#0a0a0a"/>
         </svg>
         <div style={{position:'absolute',bottom:0,left:0,right:0,height:14,background:'#0a0a0a'}}/>
