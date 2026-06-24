@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const LeftPanel = () => (
-  <div style={{position:'absolute',left:0,top:0,bottom:0,width:'28%',display:'flex',alignItems:'center',justifyContent:'center',pointerEvents:'none'}}>
+  <div className="side-panel" style={{position:'absolute',left:0,top:0,bottom:0,width:'28%',display:'flex',alignItems:'center',justifyContent:'center',pointerEvents:'none'}}>
     <svg viewBox="0 0 300 580" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <rect x="30" y="460" width="8" height="80" rx="3" fill="#8B5E3C" opacity="0.7"/>
       <rect x="218" y="460" width="8" height="80" rx="3" fill="#8B5E3C" opacity="0.7"/>
@@ -36,7 +36,7 @@ const LeftPanel = () => (
 )
 
 const RightPanel = () => (
-  <div style={{position:'absolute',right:0,top:0,bottom:0,width:'28%',display:'flex',alignItems:'center',justifyContent:'center',pointerEvents:'none'}}>
+  <div className="side-panel" style={{position:'absolute',right:0,top:0,bottom:0,width:'28%',display:'flex',alignItems:'center',justifyContent:'center',pointerEvents:'none'}}>
     <svg viewBox="0 0 300 580" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <circle cx="155" cy="55" r="26" fill="#C4956A" opacity="0.45"/>
       <path d="M130 48 Q128 20 155 18 Q182 20 180 48 Q175 30 155 28 Q135 30 130 48 Z" fill="#8B5E3C" opacity="0.55"/>
@@ -109,6 +109,7 @@ export default function CadastroPage() {
     <div style={{minHeight:'100vh',background:'#F0E4E4',display:'flex',flexDirection:'column'}}>
       <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',paddingBottom:80}}>
         <LeftPanel /><RightPanel />
+      <style>{`@media (max-width: 768px) { .side-panel { display: none !important; } }`}</style>
         <div style={{width:'100%',maxWidth:400,zIndex:1,padding:'0 16px',textAlign:'center'}}>
           <img src="/logo.png" alt="DANIK" style={{width:200,height:'auto',margin:'0 auto 24px'}} />
           <div style={{background:'white',borderRadius:16,border:'1px solid #e8d8d4',boxShadow:'0 4px 24px rgba(0,0,0,0.07)',padding:32}}>
@@ -127,6 +128,7 @@ export default function CadastroPage() {
     <div style={{minHeight:'100vh',background:'#F0E4E4',display:'flex',flexDirection:'column'}}>
       <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',paddingBottom:80}}>
         <LeftPanel /><RightPanel />
+      <style>{`@media (max-width: 768px) { .side-panel { display: none !important; } }`}</style>
         <div style={{width:'100%',maxWidth:400,zIndex:1,padding:'0 16px'}}>
           <div style={{textAlign:'center',marginBottom:32}}>
             <img src="/logo.png" alt="DANIK" style={{width:240,height:'auto',margin:'0 auto'}} />
