@@ -23,8 +23,10 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  const pub = ['/login', '/cadastro']
-  if (!user && !pub.some(p => request.nextUrl.pathname.startsWith(p))) {
+  const publicRoutes = ['/login', '/cadastro']
+  const isPublic = publicRoutes.some(p => request.nextUrl.pathname.startsWith(p))
+
+  if (!user && !isPublic) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
@@ -34,5 +36,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|api|.*\.png|.*\.jpg|.*\.jpeg|.*\.svg|.*\.webp|.*\.ico|.*\.json).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|api|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.ico).*)'],
 }
