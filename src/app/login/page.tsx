@@ -29,7 +29,7 @@ export default function LoginPage() {
 
       router.push('/dashboard')
       // mantém loading=true durante a navegação
-    } catch {
+    } catch (err) {
       setError('Erro de conexão. Tente novamente.')
       setLoading(false)
     }
@@ -85,4 +85,4 @@ export default function LoginPage() {
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                    color: '#9ca3
+                    color: 
